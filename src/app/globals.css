@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================================
+   HELIUM PHARMACY — Design System
+   ============================================================ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+:root {
+  /* Brand Colors */
+  --helium-navy:        #050d1a;
+  --helium-navy-800:    #0a1628;
+  --helium-navy-700:    #0f2040;
+  --helium-navy-600:    #152a52;
+  --helium-blue:        #1a6cf6;
+  --helium-blue-light:  #4d8ff8;
+  --helium-cyan:        #00c8e0;
+  --helium-cyan-light:  #7fe8f5;
+  --helium-silver:      #a8b8d0;
+  --helium-white:       #f0f4ff;
+  --helium-violet:      #6c4df6;
+  --helium-amber:       #f97316;
+
+  /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline {
+  --color-background: var(--helium-navy);
+  --color-foreground: var(--helium-white);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--helium-navy);
+  color: var(--helium-white);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--helium-navy);
+  color: var(--helium-white);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ============================================================
+   Utility Classes
+   ============================================================ */
+
+/* Glassmorphism */
+.glass {
+  background: rgba(15, 32, 64, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 200, 224, 0.12);
+}
+
+.glass-dark {
+  background: rgba(5, 13, 26, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 108, 246, 0.15);
+}
+
+.glass-card {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 200, 224, 0.1);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 200, 224, 0.3);
+  box-shadow: 0 0 24px rgba(0, 200, 224, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--helium-white) 0%, var(--helium-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, var(--helium-blue-light) 0%, var(--helium-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-violet {
+  background: linear-gradient(135deg, var(--helium-violet) 0%, var(--helium-blue-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(26, 108, 246, 0.4);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 200, 224, 0.4);
+}
+
+.glow-blue-sm {
+  box-shadow: 0 0 10px rgba(26, 108, 246, 0.3);
+}
+
+.glow-cyan-sm {
+  box-shadow: 0 0 10px rgba(0, 200, 224, 0.25);
+}
+
+/* Section Separator */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--helium-cyan), transparent);
+  opacity: 0.3;
+}
+
+/* Grid Pattern Overlay */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 200, 224, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 224, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Dot Pattern */
+.dot-pattern {
+  background-image: radial-gradient(circle, rgba(0, 200, 224, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Gradient Borders */
+.border-gradient-cyan {
+  border-image: linear-gradient(135deg, var(--helium-cyan), transparent) 1;
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 200, 224, 0.2), 0 0 40px rgba(26, 108, 246, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 200, 224, 0.4), 0 0 60px rgba(26, 108, 246, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes scan-line {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  50%  { opacity: 0.3; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-float       { animation: float 4s ease-in-out infinite; }
+.animate-fade-in-up  { animation: fade-in-up 0.6s ease forwards; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(0,200,224,0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--helium-navy-800);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--helium-navy-600);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--helium-blue);
 }
