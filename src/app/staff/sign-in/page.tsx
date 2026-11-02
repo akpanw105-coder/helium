@@ -1,8 +1,16 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { redirect } from "next/navigation";
+import { getCurrentStaffProfile } from "@/lib/auth";
 import { StaffSignInForm } from "@/components/auth/StaffSignInForm";
 
-export default function StaffSignInPage() {
+export default async function StaffSignInPage() {
+  // If user is already authenticated AND has an active staff profile, redirect directly to dashboard
+  const staff = await getCurrentStaffProfile();
+  if (staff && staff.is_active) {
+    redirect("/dashboard");
+  }
+
   // Pass test credentials ONLY in local development
   const isDev = process.env.NODE_ENV === "development";
   const initialEmail = isDev ? (process.env.DEV_STAFF_EMAIL || "") : "";
