@@ -24,22 +24,29 @@ export default function StaffSignInPage() {
         </p>
       </div>
 
-      {/* Sign-in card */}
+      {/* Email & Password Authentication Card */}
       <div className="w-full max-w-md z-10">
-        <Suspense fallback={<div className="text-center text-[#a8b8d0]">Loading Staff Auth...</div>}>
+        <Suspense fallback={<div className="text-center text-xs text-[#a8b8d0]">Loading Staff Auth...</div>}>
           <SignIn
-            routing="hash"
+            fallbackRedirectUrl="/dashboard"
             appearance={{
               elements: {
                 rootBox: "w-full",
-                card: "bg-[#0a1628]/90 border border-[#00c8e0]/20 backdrop-blur-xl shadow-2xl text-white rounded-2xl",
-                headerTitle: "text-white text-xl font-bold",
-                headerSubtitle: "text-[#a8b8d0]",
-                socialButtonsBlockButton: "border-[#152a52] bg-[#0f2040] hover:bg-[#152a52] text-white",
-                formButtonPrimary: "bg-gradient-to-r from-[#1a6cf6] to-[#00c8e0] text-white hover:opacity-90 font-medium py-2.5",
-                formFieldLabel: "text-[#a8b8d0] font-medium",
-                formFieldInput: "bg-[#050d1a] border-[#152a52] text-white focus:border-[#00c8e0]",
-                footerActionLink: "text-[#00c8e0] hover:text-[#7fe8f5]",
+                card: "bg-[#0a1628]/95 border border-[#00c8e0]/20 backdrop-blur-xl shadow-2xl text-white rounded-2xl p-6 sm:p-8",
+                headerTitle: "text-white text-xl font-bold tracking-tight",
+                headerSubtitle: "text-[#a8b8d0] text-xs mt-1",
+                socialButtonsBlockButton: "hidden", // Disables public Google / OAuth buttons for private staff login
+                socialButtonsProviderIcon: "hidden",
+                dividerRow: "hidden",
+                formButtonPrimary:
+                  "bg-gradient-to-r from-[#1a6cf6] to-[#00c8e0] text-white hover:opacity-90 font-bold py-3 text-xs rounded-xl shadow-lg shadow-[#00c8e0]/20 transition-all",
+                formFieldLabel: "text-[#a8b8d0] text-xs font-semibold mb-1.5",
+                formFieldInput:
+                  "bg-[#050d1a] border border-[#152a52] text-xs text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[#00c8e0] transition-colors placeholder:text-[#a8b8d0]/50",
+                footerActionLink: "text-[#00c8e0] hover:text-[#7fe8f5] text-xs font-medium",
+                formFieldAction: "text-[#00c8e0] hover:text-[#7fe8f5] text-xs font-medium",
+                footer: "hidden", // Removes public customer sign-up prompt
+                identityPreviewEditButton: "text-[#00c8e0]",
               },
             }}
           />
@@ -57,4 +64,3 @@ export default function StaffSignInPage() {
     </div>
   );
 }
-

@@ -21,9 +21,8 @@ export function Navbar() {
     <>
       <header
         role="banner"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "py-3" : "py-4"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-4"
+          }`}
         style={{
           background: scrolled
             ? "rgba(5, 13, 26, 0.92)"
@@ -35,25 +34,36 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link
-              href="/"
-              aria-label="HELIUM Pharmacy — Home"
-              className="flex items-center gap-1 group"
-            >
-              <span
-                className="text-2xl font-bold tracking-tight font-[family-name:var(--font-geist-mono)] transition-all duration-300 group-hover:[text-shadow:0_0_12px_rgba(26,108,246,0.7)]"
-                style={{ color: "var(--helium-blue)" }}
+            {/* Left section: Hidden Staff Hotspot & Brand Logo */}
+            <div className="flex items-center">
+              {/* Invisible Staff Hotspot: positioned at top-left corner before HELIUM logo */}
+              <Link
+                href="/staff/sign-in"
+                aria-label="Staff Access"
+                className="w-10 h-10 -ml-2 mr-1 cursor-default opacity-0 select-none block shrink-0"
+                tabIndex={-1}
+              />
+
+              {/* Logo */}
+              <Link
+                href="/"
+                aria-label="HELIUM Pharmacy — Home"
+                className="flex items-center gap-1 group"
               >
-                HE
-              </span>
-              <span
-                className="text-2xl font-bold tracking-tight font-[family-name:var(--font-geist-mono)]"
-                style={{ color: "var(--helium-white)" }}
-              >
-                LIUM
-              </span>
-            </Link>
+                <span
+                  className="text-2xl font-bold tracking-tight font-[family-name:var(--font-geist-mono)] transition-all duration-300 group-hover:[text-shadow:0_0_12px_rgba(26,108,246,0.7)]"
+                  style={{ color: "var(--helium-blue)" }}
+                >
+                  HE
+                </span>
+                <span
+                  className="text-2xl font-bold tracking-tight font-[family-name:var(--font-geist-mono)]"
+                  style={{ color: "var(--helium-white)" }}
+                >
+                  LIUM
+                </span>
+              </Link>
+            </div>
 
             {/* Desktop Nav */}
             <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1">
@@ -104,21 +114,18 @@ export function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
             >
               <span
-                className={`block h-0.5 w-6 rounded transition-all duration-300 ${
-                  mobileOpen ? "rotate-45 translate-y-2" : ""
-                }`}
+                className={`block h-0.5 w-6 rounded transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
                 style={{ background: "var(--helium-cyan)" }}
               />
               <span
-                className={`block h-0.5 w-6 rounded transition-all duration-300 ${
-                  mobileOpen ? "opacity-0" : ""
-                }`}
+                className={`block h-0.5 w-6 rounded transition-all duration-300 ${mobileOpen ? "opacity-0" : ""
+                  }`}
                 style={{ background: "var(--helium-cyan)" }}
               />
               <span
-                className={`block h-0.5 w-6 rounded transition-all duration-300 ${
-                  mobileOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
+                className={`block h-0.5 w-6 rounded transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
                 style={{ background: "var(--helium-cyan)" }}
               />
             </button>
