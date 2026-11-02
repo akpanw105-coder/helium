@@ -5,12 +5,17 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Eye, EyeOff, Lock, Mail, AlertCircle, ArrowRight, CheckCircle2 } from "lucide-react";
 
-export function StaffSignInForm() {
+interface StaffSignInFormProps {
+  defaultEmail?: string;
+  defaultPassword?: string;
+}
+
+export function StaffSignInForm({ defaultEmail = "", defaultPassword = "" }: StaffSignInFormProps) {
   const clerk = useClerk();
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(defaultEmail);
+  const [password, setPassword] = useState(defaultPassword);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);

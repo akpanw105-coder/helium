@@ -34,15 +34,17 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Left section: Hidden Staff Hotspot & Brand Logo */}
-            <div className="flex items-center">
-              {/* Invisible Staff Hotspot: positioned at top-left corner before HELIUM logo */}
+            {/* Left section: Discreet Inventory Access Button & Brand Logo */}
+            <div className="flex items-center gap-2">
+              {/* Subtle Inventory Access Button: compact, discreet, brand-aligned */}
               <Link
                 href="/staff/sign-in"
-                aria-label="Staff Access"
-                className="w-10 h-10 -ml-2 mr-1 cursor-default opacity-0 select-none block shrink-0"
-                tabIndex={-1}
-              />
+                title="Staff & Inventory Portal"
+                aria-label="Staff & Inventory Portal"
+                className="w-7 h-7 rounded-lg border border-[#00c8e0]/20 bg-[#0a1628]/60 hover:bg-[#00c8e0]/10 hover:border-[#00c8e0]/40 flex items-center justify-center transition-all duration-200 group/staff shrink-0"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#00c8e0]/70 group-hover/staff:bg-[#00c8e0] group-hover/staff:scale-125 transition-all duration-200" />
+              </Link>
 
               {/* Logo */}
               <Link

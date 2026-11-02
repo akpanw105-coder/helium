@@ -3,6 +3,11 @@ import { Suspense } from "react";
 import { StaffSignInForm } from "@/components/auth/StaffSignInForm";
 
 export default function StaffSignInPage() {
+  // Pass test credentials ONLY in local development
+  const isDev = process.env.NODE_ENV === "development";
+  const initialEmail = isDev ? (process.env.DEV_STAFF_EMAIL || "") : "";
+  const initialPassword = isDev ? (process.env.DEV_STAFF_PASSWORD || "") : "";
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden bg-[#050d1a]">
       {/* Background ambient glow */}
@@ -25,7 +30,10 @@ export default function StaffSignInPage() {
       {/* Direct Email & Password Form */}
       <div className="w-full max-w-md z-10">
         <Suspense fallback={<div className="text-center text-xs text-[#a8b8d0]">Loading Staff Login...</div>}>
-          <StaffSignInForm />
+          <StaffSignInForm
+            defaultEmail={initialEmail}
+            defaultPassword={initialPassword}
+          />
         </Suspense>
       </div>
 

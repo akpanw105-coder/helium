@@ -22,6 +22,16 @@ export const metadata: Metadata = {
   },
   description:
     "HELIUM is a premium Nigeria-based pharmacy brand delivering authentic medicines, expert pharmacist guidance, and a superior healthcare experience. Based in Lagos, Nigeria.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep Helium Navy -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050d1a" />
+      <stop offset="50%" stop-color="#0a192f" />
+      <stop offset="100%" stop-color="#050d1a" />
+    </linearGradient>
+
+    <!-- Helium Blue & Cyan Glow Gradient for Outer Shield/Pill -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C8E0" />
+      <stop offset="50%" stop-color="#1A6CF6" />
+      <stop offset="100%" stop-color="#00C8E0" />
+    </linearGradient>
+
+    <!-- Cross Vertical Bar: Cyan to Electric Blue -->
+    <linearGradient id="vertGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="100%" stop-color="#1A6CF6" />
+    </linearGradient>
+
+    <!-- Cross Horizontal Bar: Electric Blue to Cyan -->
+    <linearGradient id="horizGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1A6CF6" />
+      <stop offset="100%" stop-color="#00E5FF" />
+    </linearGradient>
+
+    <!-- Ambient Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Soft Outer Shadow -->
+    <filter id="outerShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00C8E0" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Container (Squircle / App Icon shape) -->
+  <rect 
+    x="32" 
+    y="32" 
+    width="448" 
+    height="448" 
+    rx="112" 
+    fill="url(#bgGrad)" 
+    stroke="url(#borderGrad)" 
+    stroke-width="14"
+    filter="url(#outerShadow)"
+  />
+
+  <!-- Subtle Inner Orbit / Molecular Ring symbolizing Helium (Atomic / Health tech) -->
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="164" 
+    fill="none" 
+    stroke="#00C8E0" 
+    stroke-width="3" 
+    stroke-dasharray="8 12" 
+    opacity="0.35" 
+  />
+
+  <!-- Central Pharmacy Cross + Tech Fusion Motif -->
+  <!-- Cross Vertical Stem (Rounded, Bold, Professional) -->
+  <rect 
+    x="214" 
+    y="126" 
+    width="84" 
+    height="260" 
+    rx="42" 
+    fill="url(#vertGrad)" 
+    filter="url(#glow)"
+  />
+
+  <!-- Cross Horizontal Stem -->
+  <rect 
+    x="126" 
+    y="214" 
+    width="260" 
+    height="84" 
+    rx="42" 
+    fill="url(#horizGrad)" 
+    opacity="0.95"
+  />
+
+  <!-- Center Core Node (Purity / Core Precision, Pure White with Cyan Halo) -->
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="44" 
+    fill="#FFFFFF" 
+  />
+  <circle 
+    cx="256" 
+    cy="256" 
+    r="24" 
+    fill="#00C8E0" 
+  />
+
+  <!-- Orbiting Satellite Atoms (Helium nucleus & electrons metaphor) -->
+  <circle cx="376" cy="170" r="14" fill="#00E5FF" filter="url(#glow)" />
+  <circle cx="136" cy="342" r="10" fill="#1A6CF6" filter="url(#glow)" />
+</svg>
+
